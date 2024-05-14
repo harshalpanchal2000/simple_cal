@@ -16,10 +16,10 @@ n1 = st.text_area("What is your first number?")
 n2 = st.text_area("What is your second number?")
 n4 = st.text_area("What operation do you want to perform? Type 'add' for addition or 'sub' for subtraction.")
 
-if st.button("Calculate"):
-    if n4 == "add":
+if st.button("Calculate") and n4:  # Check if n4 is not empty
+    if n4.strip().lower() == "add":
         st.markdown("Result: " + str(simp_add(n1, n2)))
-    elif n4 == "sub":
+    elif n4.strip().lower() == "sub":
         st.markdown("Result: " + str(simp_sub(n1, n2)))
     else:
         st.markdown("Error in selection.")
